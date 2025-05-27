@@ -33,42 +33,42 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: 'OMAR ABOALI',
-      role: 'Full Stack Developer',
-      expertise: 'React, Node.js, Database Design',
+      role: 'Full Stack Developer&Mobile Developer',
+      expertise: 'React, Node.js, Database Design, flutter, react native, laravel php, , Python',
       social: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#'
+        github: 'https://github.com/OmarAbovli',
+        linkedin: 'https://www.linkedin.com/in/omar-abovli-3652b1263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+        twitter: 'https://portofolio-five-green.vercel.app/'
       }
     },
     {
       name: 'ABDULLAH AFIFI',
-      role: 'Frontend Developer',
-      expertise: 'React, Vue.js, UI/UX Design',
+      role: 'Backend Developer',
+      expertise: 'React, Vue.js, ',
       social: {
-        github: '#',
+        github: 'https://github.com/Abdalloafifi',
         linkedin: '#',
-        twitter: '#'
+        twitter: 'https://portfolio-ee95e.web.app/'
       }
     },
     {
       name: 'MOHAMED SELEM',
-      role: 'Backend Developer',
-      expertise: 'Node.js, Python, Cloud Services',
+      role: 'Frontend Developer',
+      expertise: 'Creative , UI/UX Design, graphic designer',
       social: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#'
+        github: 'https://github.com/selim-hm',
+        linkedin: 'https://www.linkedin.com/in/mohamed-selim-31a118331',
+        twitter: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
       }
     },
     {
       name: 'MOHAMED HANAFI',
-      role: 'Mobile Developer',
-      expertise: 'React Native, Flutter, iOS/Android',
+      role: 'Full Stack Developer',
+      expertise: 'React, Next.js, node.js',
       social: {
-        github: '#',
+        github: '',
         linkedin: '#',
-        twitter: '#'
+        twitter: 'https://www.princehamo.com/'
       }
     }
   ];
