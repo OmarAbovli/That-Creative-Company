@@ -44,7 +44,7 @@ const TeamSection = () => {
     {
       name: 'ABDULLAH AFIFI',
       role: 'Backend Developer',
-      expertise: 'React, Vue.js, ',
+      expertise: 'React, nextjs, nodejs,angularjs 1 ',
       social: {
         github: 'https://github.com/Abdalloafifi',
         linkedin: '#',
