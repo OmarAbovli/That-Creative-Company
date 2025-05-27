@@ -38,7 +38,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/OmarAbovli',
         linkedin: 'https://www.linkedin.com/in/omar-abovli-3652b1263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-        compass: 'https://portofolio-five-green.vercel.app/'
+        Twitter: 'https://portofolio-five-green.vercel.app/'
       }
     },
     {
@@ -48,7 +48,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/Abdalloafifi',
         linkedin: '#',
-        compass: 'https://portfolio-ee95e.web.app/'
+        Twitter: 'https://portfolio-ee95e.web.app/'
       }
     },
     {
@@ -58,7 +58,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/selim-hm',
         linkedin: 'https://www.linkedin.com/in/mohamed-selim-31a118331',
-        compass: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
+        Twitter: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
       }
     },
     {
@@ -68,7 +68,7 @@ const TeamSection = () => {
       social: {
         github: '',
         linkedin: '#',
-        compass: 'https://www.princehamo.com/'
+        Twitter: 'https://www.princehamo.com/'
       }
     }
   ];
