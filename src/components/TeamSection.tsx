@@ -48,7 +48,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/Abdalloafifi',
         linkedin: '#',
-        Twitter: 'https://portfolio-ee95e.web.app/'
+        twitter: 'https://portfolio-ee95e.web.app/'
       }
     },
     {
@@ -58,7 +58,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/selim-hm',
         linkedin: 'https://www.linkedin.com/in/mohamed-selim-31a118331',
-        Twitter: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
+        twitter: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
       }
     },
     {
@@ -68,7 +68,7 @@ const TeamSection = () => {
       social: {
         github: '',
         linkedin: '#',
-        Twitter: 'https://www.princehamo.com/'
+        twitter: 'https://www.princehamo.com/'
       }
     }
   ];
