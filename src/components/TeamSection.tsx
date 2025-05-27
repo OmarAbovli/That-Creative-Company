@@ -2,7 +2,7 @@
 import React, { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, compass } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import * as THREE from 'three';
@@ -38,7 +38,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/OmarAbovli',
         linkedin: 'https://www.linkedin.com/in/omar-abovli-3652b1263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-        twitter: 'https://portofolio-five-green.vercel.app/'
+        compass: 'https://portofolio-five-green.vercel.app/'
       }
     },
     {
@@ -48,7 +48,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/Abdalloafifi',
         linkedin: '#',
-        twitter: 'https://portfolio-ee95e.web.app/'
+        compass: 'https://portfolio-ee95e.web.app/'
       }
     },
     {
@@ -58,7 +58,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/selim-hm',
         linkedin: 'https://www.linkedin.com/in/mohamed-selim-31a118331',
-        twitter: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
+        compass: 'https://portfolio-selims-projects-c65def77.vercel.app/#'
       }
     },
     {
@@ -68,7 +68,7 @@ const TeamSection = () => {
       social: {
         github: '',
         linkedin: '#',
-        twitter: 'https://www.princehamo.com/'
+        compass: 'https://www.princehamo.com/'
       }
     }
   ];
