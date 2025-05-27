@@ -38,7 +38,7 @@ const TeamSection = () => {
       social: {
         github: 'https://github.com/OmarAbovli',
         linkedin: 'https://www.linkedin.com/in/omar-abovli-3652b1263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-        Twitter: 'https://portofolio-five-green.vercel.app/'
+        twitter: 'https://portofolio-five-green.vercel.app/'
       }
     },
     {
