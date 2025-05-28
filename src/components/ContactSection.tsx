@@ -208,7 +208,7 @@ const ContactSection = () => {
   }`}
 >
   <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_next" value="https://yourwebsite.com/thanks" />
+  <input type="hidden" name="_next" value="https://that-creative-company.vercel.app/" />
 
               <h3 className={`text-2xl font-bold mb-6 transition-colors duration-1000 ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
