@@ -69,6 +69,31 @@ const App = () => (
             {/* تحسينات إضافية */}
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="canonical" href="https://that-creative-company.vercel.app/" />
+
+            {/* Schema JSON-LD */}
+            <script type="application/ld+json">
+              {`
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "That Creative Company",
+                "url": "https://that-creative-company.vercel.app/",
+                "logo": "https://that-creative-company.vercel.app/logo.png",
+                "description": "شركة برمجة وتطوير مواقع وتطبيقات باستخدام أحدث التقنيات.",
+                "sameAs": [
+                  "https://twitter.com/thatcreativeco",
+                  "https://www.linkedin.com/company/thatcreativeco"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+201234567890",
+                  "contactType": "customer service",
+                  "areaServed": "Worldwide",
+                  "availableLanguage": ["Arabic", "English"]
+                }
+              }
+              `}
+            </script>
           </Helmet>
 
           <Toaster />
