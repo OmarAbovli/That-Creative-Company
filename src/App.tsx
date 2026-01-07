@@ -23,7 +23,71 @@ const App = () => (
         <LanguageProvider>
           <ThemeProvider>
             <Helmet>
-              {/* ... meta tags omitted for brevity but preserved by tool ... */}
+              <title>Ivory Studio | Digital Excellence & Specialized Web Solutions</title>
+              <meta name="description" content="Ivory Studio is a leading digital agency specializing in high-performance web applications, specialized systems, and stunning UI/UX designs. We turn your vision into digital reality." />
+              <meta name="keywords" content="digital agency, web development, UI/UX design, specialized systems, custom software, Ivory Studio, performance optimization" />
+
+              {/* Open Graph / Facebook */}
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://ivory-studio.com/" />
+              <meta property="og:title" content="Ivory Studio | Digital Excellence" />
+              <meta property="og:description" content="Turning visions into high-performance digital realities. Specialized web solutions and UI/UX excellence." />
+              <meta property="og:image" content="https://ivory-studio.com/og-image.jpg" />
+
+              {/* Twitter */}
+              <meta property="twitter:card" content="summary_large_image" />
+              <meta property="twitter:url" content="https://ivory-studio.com/" />
+              <meta property="twitter:title" content="Ivory Studio | Digital Excellence" />
+              <meta property="twitter:description" content="Turning visions into high-performance digital realities. Specialized web solutions and UI/UX excellence." />
+              <meta property="twitter:image" content="https://ivory-studio.com/og-image.jpg" />
+
+              {/* Canonical URL */}
+              <link rel="canonical" href="https://ivory-studio.com/" />
+
+              {/* Structured Data (JSON-LD) */}
+              <script type="application/ld+json">
+                {`
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "ProfessionalService",
+                    "name": "Ivory Studio",
+                    "image": "https://ivory-studio.com/favicon.svg",
+                    "@id": "",
+                    "url": "https://ivory-studio.com/",
+                    "telephone": "+201014811985",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "streetAddress": "",
+                      "addressLocality": "Cairo",
+                      "postalCode": "",
+                      "addressCountry": "EG"
+                    },
+                    "geo": {
+                      "@type": "GeoCoordinates",
+                      "latitude": 30.0444,
+                      "longitude": 31.2357
+                    },
+                    "openingHoursSpecification": {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                      ],
+                      "opens": "00:00",
+                      "closes": "23:59"
+                    },
+                    "sameAs": [
+                      "https://www.facebook.com/ivorystudioeg",
+                      "https://www.linkedin.com/company/ivorystudio"
+                    ]
+                  }
+                `}
+              </script>
             </Helmet>
 
             <Toaster />
