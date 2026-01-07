@@ -94,127 +94,6 @@ function fbm(x: number, y: number, z: number, octaves: number) {
 }
 
 
-const createProceduralTextures = () => {
-  // Reduced resolution for performance
-  const width = 512;
-  const height = 256;
-
-  const diffCanvas = document.createElement('canvas'); diffCanvas.width = width; diffCanvas.height = height;
-  const diffCtx = diffCanvas.getContext('2d')!;
-
-  const specCanvas = document.createElement('canvas'); specCanvas.width = width; specCanvas.height = height;
-  const specCtx = specCanvas.getContext('2d')!;
-
-  const bumpCanvas = document.createElement('canvas'); bumpCanvas.width = width; bumpCanvas.height = height;
-  const bumpCtx = bumpCanvas.getContext('2d')!;
-
-  const cloudCanvas = document.createElement('canvas'); cloudCanvas.width = width; cloudCanvas.height = height;
-  const cloudCtx = cloudCanvas.getContext('2d')!;
-
-  const diffImg = diffCtx.createImageData(width, height);
-  const specImg = specCtx.createImageData(width, height);
-  const bumpImg = bumpCtx.createImageData(width, height);
-  const cloudImg = cloudCtx.createImageData(width, height);
-
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      // Map UV to Sphere 3D coordinates
-      const u = x / width;
-      const v = y / height;
-      const theta = u * Math.PI * 2;
-      const phi = v * Math.PI;
-
-      // 3D coordinates for noise lookup (prevents pole distortion)
-      const nx = Math.sin(phi) * Math.cos(theta);
-      const ny = Math.cos(phi);
-      const nz = Math.sin(phi) * Math.sin(theta);
-
-      // Generate Terrain Noise
-      const n = fbm(nx + 10, ny + 10, nz + 10, 6); // 6 Octaves
-
-      // --- TERRAIN GENERATION ---
-      const index = (x + y * width) * 4;
-
-      let r, g, b, spec, bump;
-
-      if (n < 0.05) {
-        // Ocean - BRIGHTER BASE
-        r = 10 + n * 30;   // Navy Blue base
-        g = 40 + n * 40;
-        b = 100 + n * 100; // Rich Blue
-        spec = 150; // Shiny
-        bump = 0;   // Flat
-      } else if (n < 0.1) {
-        // Shallow Water / Coast - Turquoise
-        r = 20; g = 100; b = 150;
-        spec = 100;
-        bump = 10;
-      } else if (n < 0.4) {
-        // Green Land - Lighter Green
-        r = 50 + n * 60;
-        g = 120 + n * 50;
-        b = 50 + n * 30;
-        spec = 10; // Matte
-        bump = 50 + n * 100;
-      } else if (n < 0.7) {
-        // Brown/Grey Mountain Base
-        r = 100 + n * 50;
-        g = 90 + n * 50;
-        b = 70 + n * 50;
-        spec = 5;
-        bump = 150 + n * 100;
-      } else {
-        // Snow Caps / High Peaks
-        r = 240; g = 240; b = 250;
-        spec = 30;
-        bump = 255;
-      }
-
-      // Diffuse Map
-      diffImg.data[index] = r;
-      diffImg.data[index + 1] = g;
-      diffImg.data[index + 2] = b;
-      diffImg.data[index + 3] = 255;
-
-      // Specular Map (Shininess)
-      specImg.data[index] = spec;
-      specImg.data[index + 1] = spec;
-      specImg.data[index + 2] = spec;
-      specImg.data[index + 3] = 255;
-
-      // Bump Map (Height)
-      bumpImg.data[index] = bump;
-      bumpImg.data[index + 1] = bump;
-      bumpImg.data[index + 2] = bump;
-      bumpImg.data[index + 3] = 255;
-
-      // --- CLOUD GENERATION ---
-      // Separate noise frequency
-      const c = fbm(nx + 50, ny + 50, nz + 50, 4);
-      const cloudThreshold = 0.25;
-      const cloudVal = c > cloudThreshold ? (c - cloudThreshold) * 3 * 255 : 0;
-
-      cloudImg.data[index] = 255;
-      cloudImg.data[index + 1] = 255;
-      cloudImg.data[index + 2] = 255;
-      cloudImg.data[index + 3] = Math.min(255, cloudVal); // Alpha
-    }
-  }
-
-  diffCtx.putImageData(diffImg, 0, 0);
-  specCtx.putImageData(specImg, 0, 0);
-  bumpCtx.putImageData(bumpImg, 0, 0);
-  cloudCtx.putImageData(cloudImg, 0, 0);
-
-  return {
-    diffuse: new THREE.CanvasTexture(diffCanvas),
-    specular: new THREE.CanvasTexture(specCanvas),
-    bump: new THREE.CanvasTexture(bumpCanvas),
-    clouds: new THREE.CanvasTexture(cloudCanvas)
-  };
-};
-
-
 const Earth = () => {
   const earthRef = useRef<THREE.Mesh>(null);
   const cloudsRef = useRef<THREE.Mesh>(null);
@@ -223,67 +102,144 @@ const Earth = () => {
   const { isDarkMode } = useTheme();
 
   const [scrollY, setScrollY] = useState(0);
+  const [textures, setTextures] = useState<{
+    diffuse: THREE.CanvasTexture,
+    specular: THREE.CanvasTexture,
+    bump: THREE.CanvasTexture,
+    clouds: THREE.CanvasTexture
+  } | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
+
+    // ASYNC TEXTURE GENERATION
+    const width = 256;
+    const height = 128;
+    const diffCanvas = document.createElement('canvas'); diffCanvas.width = width; diffCanvas.height = height;
+    const specCanvas = document.createElement('canvas'); specCanvas.width = width; specCanvas.height = height;
+    const bumpCanvas = document.createElement('canvas'); bumpCanvas.width = width; bumpCanvas.height = height;
+    const cloudCanvas = document.createElement('canvas'); cloudCanvas.width = width; cloudCanvas.height = height;
+
+    const diffCtx = diffCanvas.getContext('2d')!;
+    const specCtx = specCanvas.getContext('2d')!;
+    const bumpCtx = bumpCanvas.getContext('2d')!;
+    const cloudCtx = cloudCanvas.getContext('2d')!;
+
+    const diffImg = diffCtx.createImageData(width, height);
+    const specImg = specCtx.createImageData(width, height);
+    const bumpImg = bumpCtx.createImageData(width, height);
+    const cloudImg = cloudCtx.createImageData(width, height);
+
+    let currentY = 0;
+    const CHUNK_Y = 16;
+
+    const processNextChunk = () => {
+      const targetY = Math.min(currentY + CHUNK_Y, height);
+      for (let y = currentY; y < targetY; y++) {
+        for (let x = 0; x < width; x++) {
+          const u = x / width;
+          const v = y / height;
+          const theta = u * Math.PI * 2;
+          const phi = v * Math.PI;
+          const nx = Math.sin(phi) * Math.cos(theta);
+          const ny = Math.cos(phi);
+          const nz = Math.sin(phi) * Math.sin(theta);
+
+          const n = fbm(nx + 10, ny + 10, nz + 10, 3);
+          const index = (x + y * width) * 4;
+
+          let r, g, b, spec, bump;
+          if (n < 0.05) { r = 10; g = 40; b = 100; spec = 150; bump = 0; }
+          else if (n < 0.1) { r = 20; g = 100; b = 150; spec = 100; bump = 10; }
+          else if (n < 0.4) { r = 50; g = 120; b = 50; spec = 10; bump = 100; }
+          else if (n < 0.7) { r = 120; g = 110; b = 90; spec = 5; bump = 200; }
+          else { r = 240; g = 240; b = 250; spec = 30; bump = 255; }
+
+          diffImg.data[index] = r;
+          diffImg.data[index + 1] = g;
+          diffImg.data[index + 2] = b;
+          diffImg.data[index + 3] = 255;
+          specImg.data[index] = specImg.data[index + 1] = specImg.data[index + 2] = spec;
+          specImg.data[index + 3] = 255;
+          bumpImg.data[index] = bumpImg.data[index + 1] = bumpImg.data[index + 2] = bump;
+          bumpImg.data[index + 3] = 255;
+
+          const c = fbm(nx + 50, ny + 50, nz + 50, 2);
+          const cloudThreshold = 0.3;
+          const cloudVal = c > cloudThreshold ? (c - cloudThreshold) * 3 * 255 : 0;
+          cloudImg.data[index] = 255;
+          cloudImg.data[index + 1] = 255;
+          cloudImg.data[index + 2] = 255;
+          cloudImg.data[index + 3] = Math.min(255, cloudVal);
+        }
+      }
+      currentY = targetY;
+      if (currentY < height) {
+        setTimeout(processNextChunk, 0);
+      } else {
+        diffCtx.putImageData(diffImg, 0, 0);
+        specCtx.putImageData(specImg, 0, 0);
+        bumpCtx.putImageData(bumpImg, 0, 0);
+        cloudCtx.putImageData(cloudImg, 0, 0);
+        setTextures({
+          diffuse: new THREE.CanvasTexture(diffCanvas),
+          specular: new THREE.CanvasTexture(specCanvas),
+          bump: new THREE.CanvasTexture(bumpCanvas),
+          clouds: new THREE.CanvasTexture(cloudCanvas)
+        });
+      }
+    };
+    processNextChunk();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Generate textures ONCE
-  const textures = useMemo(() => createProceduralTextures(), []);
-
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    const scrollRotation = scrollY * 0.0005; // ADJUST SENSITIVITY HERE
-
-    if (earthRef.current) {
-      earthRef.current.rotation.y = time * 0.05 + scrollRotation;
-    }
+    const scrollRotation = scrollY * 0.0005;
+    if (earthRef.current) earthRef.current.rotation.y = time * 0.05 + scrollRotation;
     if (cloudsRef.current) {
-      cloudsRef.current.rotation.y = time * 0.065 + scrollRotation; // Part of cloud motion synced
+      cloudsRef.current.rotation.y = time * 0.065 + scrollRotation;
       cloudsRef.current.rotation.x = Math.sin(time * 0.05) * 0.02;
     }
-    if (hotspotsRef.current) {
-      hotspotsRef.current.rotation.y = time * 0.05 + scrollRotation; // Sync hotspots with earth
-    }
+    if (hotspotsRef.current) hotspotsRef.current.rotation.y = time * 0.05 + scrollRotation;
   });
+
+  if (!textures) return null;
 
   return (
     <group position={[0, 0, 0]}>
-      {/* 1. REALISTIC EARTH SURFACE */}
       <mesh ref={earthRef} receiveShadow castShadow>
-        <sphereGeometry args={[2, 128, 128]} />
+        <sphereGeometry args={[2, 48, 48]} />
         <meshStandardMaterial
           map={textures.diffuse}
-          normalMap={textures.bump} // Using bump as normal for surface detail
+          normalMap={textures.bump}
           normalScale={new THREE.Vector2(0.5, 0.5)}
-          roughnessMap={textures.specular} // Invert spec for roughness? Actually standard mat uses roughness (0=glossy)
+          roughnessMap={textures.specular}
           roughness={0.6}
           metalness={0.1}
           envMapIntensity={0.5}
-          emissive={isDarkMode ? "#000020" : "#000000"} // Slight night glow
+          emissive={isDarkMode ? "#000020" : "#000000"}
           emissiveIntensity={0.2}
         />
       </mesh>
 
-      {/* 2. CLOUD LAYER */}
       <mesh ref={cloudsRef} scale={[1.025, 1.025, 1.025]}>
-        <sphereGeometry args={[2, 128, 128]} />
+        <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
           map={textures.clouds}
           transparent={true}
           opacity={0.9}
-          blending={THREE.NormalBlending} // Standard blending for clouds
+          blending={THREE.NormalBlending}
           side={THREE.DoubleSide}
-          alphaMap={textures.clouds} // Use texture alpha
+          alphaMap={textures.clouds}
           depthWrite={false}
         />
       </mesh>
 
       {/* 3. ATMOSPHERE GLOW (Fresnel) */}
       <mesh ref={atmosphereRef} scale={[1.25, 1.25, 1.25]}>
-        <sphereGeometry args={[2, 64, 64]} />
+        <sphereGeometry args={[2, 24, 24]} />
         <meshBasicMaterial
           color={new THREE.Color(0.2, 0.6, 1.0)}
           transparent
