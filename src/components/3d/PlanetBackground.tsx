@@ -113,7 +113,6 @@ const Earth = () => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
 
-    // ASYNC TEXTURE GENERATION
     const width = 256;
     const height = 128;
     const diffCanvas = document.createElement('canvas'); diffCanvas.width = width; diffCanvas.height = height;
@@ -132,7 +131,7 @@ const Earth = () => {
     const cloudImg = cloudCtx.createImageData(width, height);
 
     let currentY = 0;
-    const CHUNK_Y = 16;
+    const CHUNK_Y = 4;
 
     const processNextChunk = () => {
       const targetY = Math.min(currentY + CHUNK_Y, height);
@@ -176,7 +175,7 @@ const Earth = () => {
       }
       currentY = targetY;
       if (currentY < height) {
-        setTimeout(processNextChunk, 0);
+        setTimeout(processNextChunk, 10);
       } else {
         diffCtx.putImageData(diffImg, 0, 0);
         specCtx.putImageData(specImg, 0, 0);
@@ -190,8 +189,13 @@ const Earth = () => {
         });
       }
     };
-    processNextChunk();
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const timer = setTimeout(processNextChunk, 1000);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
 
   useFrame((state) => {
@@ -237,7 +241,6 @@ const Earth = () => {
         />
       </mesh>
 
-      {/* 3. ATMOSPHERE GLOW (Fresnel) */}
       <mesh ref={atmosphereRef} scale={[1.25, 1.25, 1.25]}>
         <sphereGeometry args={[2, 24, 24]} />
         <meshBasicMaterial
@@ -245,17 +248,13 @@ const Earth = () => {
           transparent
           opacity={0.15}
           blending={THREE.AdditiveBlending}
-          side={THREE.BackSide} /* Backside makes it look like a halo */
+          side={THREE.BackSide}
         />
       </mesh>
 
-      {/* 4. HOTSPOTS */}
       <group ref={hotspotsRef}>
-        {/* Egypt (Cairo approx) */}
         <Hotspot lat={30.0} lon={31.2} label="Cairo" region="Egypt" />
-        {/* KSA (Riyadh approx) */}
         <Hotspot lat={24.7} lon={46.6} label="Riyadh" region="Saudi Arabia" />
-        {/* UAE (Dubai approx) */}
         <Hotspot lat={25.2} lon={55.3} label="Dubai" region="UAE" />
       </group>
     </group>
@@ -300,42 +299,40 @@ const Moon = () => {
 const PlanetBackground = () => {
   const { isDarkMode } = useTheme();
 
+  const starsPosition = useMemo(() => {
+    return new Float32Array(3000).map(() => (Math.random() - 0.5) * 100);
+  }, []);
+
   return (
     <>
-      {/* Base uniform light so nothing is ever pitch black */}
       <ambientLight intensity={isDarkMode ? 1.5 : 1.2} />
-
-      {/* Sky/Ground light for better 3D definition */}
       <hemisphereLight
         color={isDarkMode ? "#001133" : "#ffffff"}
         groundColor={isDarkMode ? "#000000" : "#ffffff"}
         intensity={1}
       />
-
       <directionalLight
         position={[10, 5, 10]}
         intensity={isDarkMode ? 2.5 : 1.5}
         color="#ffffff"
         castShadow
       />
-      {/* Blue rim light for dramatic effect */}
       <spotLight position={[-10, 0, -5]} intensity={5} color="#0044ff" distance={20} />
 
       <Earth />
       {isDarkMode && <Moon />}
 
-      {/* Stars */}
       {isDarkMode &&
         <points>
           <bufferGeometry>
             <bufferAttribute
               attach="attributes-position"
-              count={1500}
-              array={new Float32Array(4500).map(() => (Math.random() - 0.5) * 100)}
+              count={1000}
+              array={starsPosition}
               itemSize={3}
             />
           </bufferGeometry>
-          <pointsMaterial size={0.15} color="white" transparent opacity={0.8} />
+          <pointsMaterial size={0.15} color="white" transparent opacity={0.6} />
         </points>
       }
     </>
