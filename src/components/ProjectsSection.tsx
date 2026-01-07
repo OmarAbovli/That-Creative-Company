@@ -21,7 +21,7 @@ const AnimatedTorus = () => {
 
   return (
     <mesh ref={meshRef}>
-      <torusGeometry args={[1, 0.4, 16, 100]} />
+      <torusGeometry args={[1, 0.4, 8, 48]} />
       <meshStandardMaterial color="#0082FF" wireframe />
     </mesh>
   );
@@ -191,6 +191,8 @@ const ProjectsSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 

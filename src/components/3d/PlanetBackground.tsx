@@ -95,9 +95,9 @@ function fbm(x: number, y: number, z: number, octaves: number) {
 
 
 const createProceduralTextures = () => {
-  // Canvas Size - Higher = More Detail but Slower
-  const width = 1024; // 1k Resolution is decent for performance
-  const height = 512;
+  // Reduced resolution for performance
+  const width = 512;
+  const height = 256;
 
   const diffCanvas = document.createElement('canvas'); diffCanvas.width = width; diffCanvas.height = height;
   const diffCtx = diffCanvas.getContext('2d')!;
