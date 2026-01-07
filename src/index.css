@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 100% 98%;
+    --foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 100% 50%;
+    --radius: 1rem;
+
+    /* Ivory Studio Brand Tokens */
+    --brand-deep: #000B2B;
+    --brand-electric: #0082FF;
+    --brand-cyan: #01ECFF;
+    --glass-fill: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.15);
+  }
+
+  .dark {
+    --background: 225 100% 2%;
+    --foreground: 210 40% 98%;
+    --card: 225 100% 3%;
+    --card-foreground: 210 40% 98%;
+    --popover: 225 100% 2%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 225 100% 2%;
+    --secondary: 225 100% 10%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 225 100% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 225 100% 15%;
+    --input: 225 100% 15%;
+    --ring: 210 100% 50%;
+
+    /* Dark Brand Glass Tokens */
+    --glass-fill: rgba(0, 11, 43, 0.4);
+    --glass-border: rgba(0, 130, 255, 0.2);
+  }
+}
+
+@layer components {
+
+  /* FIXED: Used Hex codes for arbitrary shadows to prevent formatter/PostCSS space issues */
+  .glass {
+    @apply bg-[var(--glass-fill)] backdrop-blur-2xl border border-[var(--glass-border)] shadow-[0_8px_32px_0_#0000005e];
+  }
+
+  .glass-card {
+    @apply glass rounded-3xl transition-all duration-700 hover:shadow-[0_0_50px_#0082FF33] hover:border-primary/50;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0082FF] via-[#01ECFF] to-[#0082FF];
+  }
+}
+
+@layer base {
+  body.dark-theme {
+    background: radial-gradient(circle at center, rgba(0, 11, 43, 1) 0%, rgba(0, 5, 20, 1) 100%);
+    color: white;
+  }
+
+  body.dark-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(0, 130, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(1, 236, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(0, 130, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: nightSky 20s linear infinite;
+  }
+
+  body.light-theme {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(240, 249, 255, 1) 50%,
+        rgba(224, 242, 254, 1) 100%);
+    color: #000B2B;
+    position: relative;
+  }
+
+  body.light-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 70% 30%, rgba(0, 130, 255, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 30% 70%, rgba(1, 236, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 50% 10%, rgba(0, 130, 255, 0.03) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: -1;
+    animation: daySky 30s linear infinite;
+  }
+
+  .transition-theme {
+    transition: background-color 2s cubic-bezier(0.4, 0, 0.2, 1),
+      color 2s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  canvas {
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1),
+      filter 2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  @keyframes nightSky {
+
+    0%,
+    100% {
+      opacity: 0.8;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-20px) rotate(2deg);
+    }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .card-hover {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-10px) scale(1.02);
+    filter: brightness(1.1);
+  }
+
+  /* Slime effect styling */
+  .slime-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 130, 255, 0.6) 0%, transparent 70%);
+    animation: slimeRipple 2s ease-out forwards;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  @keyframes slimeRipple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  @keyframes daySky {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .theme-loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+  .interactive-bg {
+    cursor: crosshair;
+  }
+
+  .interactive-bg:active {
+    cursor: grabbing;
+  }
+}

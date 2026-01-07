@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://ivory-studio.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
