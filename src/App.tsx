@@ -29,20 +29,20 @@ const App = () => (
 
               {/* Open Graph / Facebook */}
               <meta property="og:type" content="website" />
-              <meta property="og:url" content="https://ivory-studio.com/" />
+              <meta property="og:url" content="https://ivory-studio.vercel.app/" />
               <meta property="og:title" content="Ivory Studio | Digital Excellence" />
               <meta property="og:description" content="Turning visions into high-performance digital realities. Specialized web solutions and UI/UX excellence." />
-              <meta property="og:image" content="https://ivory-studio.com/og-image.jpg" />
+              <meta property="og:image" content="https://ivory-studio.vercel.app/og-image.jpg" />
 
               {/* Twitter */}
               <meta property="twitter:card" content="summary_large_image" />
-              <meta property="twitter:url" content="https://ivory-studio.com/" />
+              <meta property="twitter:url" content="https://ivory-studio.vercel.app/" />
               <meta property="twitter:title" content="Ivory Studio | Digital Excellence" />
               <meta property="twitter:description" content="Turning visions into high-performance digital realities. Specialized web solutions and UI/UX excellence." />
-              <meta property="twitter:image" content="https://ivory-studio.com/og-image.jpg" />
+              <meta property="twitter:image" content="https://ivory-studio.vercel.app/og-image.jpg" />
 
               {/* Canonical URL */}
-              <link rel="canonical" href="https://ivory-studio.com/" />
+              <link rel="canonical" href="https://ivory-studio.vercel.app/" />
 
               {/* Structured Data (JSON-LD) */}
               <script type="application/ld+json">
@@ -51,9 +51,9 @@ const App = () => (
                     "@context": "https://schema.org",
                     "@type": "ProfessionalService",
                     "name": "Ivory Studio",
-                    "image": "https://ivory-studio.com/favicon.svg",
+                    "image": "https://ivory-studio.vercel.app/favicon.svg",
                     "@id": "",
-                    "url": "https://ivory-studio.com/",
+                    "url": "https://ivory-studio.vercel.app/",
                     "telephone": "+201014811985",
                     "address": {
                       "@type": "PostalAddress",
