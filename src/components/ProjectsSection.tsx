@@ -34,6 +34,26 @@ const ProjectsSection = () => {
 
   const projects: ProjectData[] = [
     {
+      title: "Clinic System",
+      category: "Medical Management",
+      shortDescription: "Advanced clinic management system with patient records, appointments, and medical reporting.",
+      fullDescription: "A comprehensive digital solution for medical clinics. Features include patient profile management, appointment scheduling, electronic medical records (EMR), and financial tracking.",
+      problem: "Medical clinics faced challenges in managing patient flow, securing medical history, and tracking clinic finances across multiple departments.",
+      solution: "We built a centralized, secure platform that streamlines the patient experience from booking to billing, ensuring medical data is always accessible and clinic operations are efficient.",
+      image: "/projects/clinic-system/الرئيسيه.png",
+      gallery: [
+        "/projects/clinic-system/الرئيسيه.png",
+        "/projects/clinic-system/المرضي.png",
+        "/projects/clinic-system/المواعيد.png",
+        "/projects/clinic-system/اداره الماليه.png",
+        "/projects/clinic-system/اعدادات الai.png",
+        "/projects/clinic-system/واتساب.png"
+      ],
+      technologies: ['React', 'AI Integration', 'WhatsApp Automation', 'Medical ERP', 'Financial Analytics'],
+      demoUrl: 'https://clinic-system-v2.vercel.app/',
+      githubUrl: 'https://github.com/OmarAbovli/clinic-system-v2'
+    },
+    {
       title: "Competooo",
       category: "EdTech Platform",
       shortDescription: "Interactive English learning platform for high school students with live sessions and gamification.",
@@ -190,7 +210,7 @@ const ProjectsSection = () => {
 
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.category} solution by Ivory Tech`}
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

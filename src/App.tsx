@@ -23,63 +23,47 @@ const App = () => (
         <LanguageProvider>
           <ThemeProvider>
             <Helmet>
-              <title>Ivory Studio | Digital Excellence & Specialized Web Solutions</title>
-              <meta name="description" content="Ivory Studio is a leading digital agency specializing in high-performance web applications, specialized systems, and stunning UI/UX designs. We turn your vision into digital reality." />
-              <meta name="keywords" content="digital agency, web development, UI/UX design, specialized systems, custom software, Ivory Studio, performance optimization" />
+              <title>Ivory Tech | Clinic Management Systems & Educational Platforms</title>
+              <meta name="description" content="Ivory Tech specializes in high-performance web applications, specialized educational platforms, and clinic management systems in Egypt. نحن نطور منصات تعليمية وأنظمة إدارة عيادات متطورة." />
+              <meta name="keywords" content="ivory, ivory tech, ivorytech, آيفوري, منصه تعليميه في مصر, سيستم اداره للعياده, clinic management system, educational platform egypt, software company cairo, web development egypt" />
 
               {/* Open Graph / Facebook */}
               <meta property="og:type" content="website" />
-              <meta property="og:url" content="https://ivory-studio.vercel.app/" />
-              <meta property="og:title" content="Ivory Studio | Digital Excellence" />
-              <meta property="og:description" content="Turning visions into high-performance digital realities. Specialized web solutions and UI/UX excellence." />
-              <meta property="og:image" content="https://ivory-studio.vercel.app/og-image.jpg" />
+              <meta property="og:url" content="https://www.ivoryivorytech.online/" />
+              <meta property="og:title" content="Ivory Tech | Digital Excellence" />
+              <meta property="og:description" content="Turning visions into high-performance digital realities. Specialized in Educational Platforms and Clinic Management Systems." />
+              <meta property="og:image" content="https://www.ivoryivorytech.online/og-image.jpg" />
 
               {/* Twitter */}
               <meta property="twitter:card" content="summary_large_image" />
-              <meta property="twitter:url" content="https://ivory-studio.vercel.app/" />
-              <meta property="twitter:title" content="Ivory Studio | Digital Excellence" />
-              <meta property="twitter:description" content="Turning visions into high-performance digital realities. Specialized web solutions and UI/UX excellence." />
-              <meta property="twitter:image" content="https://ivory-studio.vercel.app/og-image.jpg" />
+              <meta property="twitter:url" content="https://www.ivoryivorytech.online/" />
+              <meta property="twitter:title" content="Ivory Tech" />
+              <meta property="twitter:description" content="Specialized Web Solutions: Educational Platforms & Clinic Management Systems." />
+              <meta property="twitter:image" content="https://www.ivoryivorytech.online/og-image.jpg" />
 
               {/* Canonical URL */}
-              <link rel="canonical" href="https://ivory-studio.vercel.app/" />
+              <link rel="canonical" href="https://www.ivoryivorytech.online/" />
 
               {/* Structured Data (JSON-LD) */}
               <script type="application/ld+json">
                 {`
                   {
                     "@context": "https://schema.org",
-                    "@type": "ProfessionalService",
-                    "name": "Ivory Studio",
-                    "image": "https://ivory-studio.vercel.app/favicon.svg",
+                    "@type": "SoftwareApplication",
+                    "name": "Ivory Tech",
+                    "alternateName": "Ivory Tech",
+                    "image": "https://www.ivoryivorytech.online/favicon.svg",
                     "@id": "",
-                    "url": "https://ivory-studio.vercel.app/",
+                    "url": "https://www.ivoryivorytech.online/",
                     "telephone": "+201014811985",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Web",
                     "address": {
                       "@type": "PostalAddress",
                       "streetAddress": "",
                       "addressLocality": "Cairo",
                       "postalCode": "",
                       "addressCountry": "EG"
-                    },
-                    "geo": {
-                      "@type": "GeoCoordinates",
-                      "latitude": 30.0444,
-                      "longitude": 31.2357
-                    },
-                    "openingHoursSpecification": {
-                      "@type": "OpeningHoursSpecification",
-                      "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday",
-                        "Sunday"
-                      ],
-                      "opens": "00:00",
-                      "closes": "23:59"
                     },
                     "sameAs": [
                       "https://www.facebook.com/ivorystudioeg",

@@ -20,16 +20,16 @@ const translations = {
     'nav.contact': 'تواصل معنا',
 
     // Hero Section
-    'hero.title': 'Ivory Studio',
-    'hero.subtitle': 'نحن نطور تطبيقات ويب ومحمولة متطورة باستخدام أحدث التقنيات',
+    'hero.title': 'Ivory Tech',
+    'hero.subtitle': 'نحن نطور تطبيقات ويب ومنصات تعليمية وأنظمة إدارة عيادات متطورة (سيستم عيادة)',
     'hero.startProject': 'ابدأ مشروعك',
     'hero.exploreWork': 'استكشف أعمالنا',
 
     // Services Section
     'services.title': 'خدماتنا المتخصصة',
     'services.subtitle': 'نقدم حلولاً تقنية شاملة ومبتكرة تلبي احتياجات عملائنا وتحقق أهدافهم',
-    'services.web.title': 'تطوير الويب',
-    'services.web.description': 'نطور مواقع ويب متطورة باستخدام React و Next.js',
+    'services.web.title': 'تطوير الويب والمنصات التعليمية',
+    'services.web.description': 'نطور مواقع ويب ومنصات تعليمية متطورة (Learning Management Systems) باستخدام React و Next.js',
     'services.mobile.title': 'تطبيقات الموبايل',
     'services.mobile.description': 'تطبيقات محمولة حديثة لأندرويد و iOS',
     'services.backend.title': 'تطوير الخوادم',
@@ -44,8 +44,8 @@ const translations = {
     'projects.ecommerce.description': 'منصة تجارة إلكترونية متكاملة مع نظام دفع آمن',
     'projects.project-management.title': 'تطبيق إدارة المشاريع',
     'projects.project-management.description': 'تطبيق محمول لإدارة المشاريع والفرق',
-    'projects.cms.title': 'نظام إدارة المحتوى',
-    'projects.cms.description': 'نظام إدارة محتوى متطور مع لوحة تحكم تفاعلية',
+    'projects.cms.title': 'نظام إدارة العيادات والمحتوى',
+    'projects.cms.description': 'نظام متطور لإدارة العيادات الطبية والمحتوى مع لوحة تحكم تفاعلية وشاملة',
     'projects.3d-experience.title': 'تجربة ثلاثية الأبعاد',
     'projects.3d-experience.description': 'موقع تفاعلي بتقنيات ثلاثية الأبعاد متطورة',
     'projects.view': 'عرض المشروع',
@@ -90,7 +90,7 @@ const translations = {
     'contact.form.send': 'إرسال الرسالة',
     'contact.form.success': 'تم إرسال الرسالة بنجاح!',
     'contact.form.success.description': 'سنتواصل معك قريباً',
-    'footer.copyright': '© 2026 Ivory Studio. جميع الحقوق محفوظة.'
+    'footer.copyright': '© 2026 Ivory Tech. جميع الحقوق محفوظة.'
   },
   en: {
     // Navigation
@@ -101,16 +101,16 @@ const translations = {
     'nav.contact': 'Contact',
 
     // Hero Section
-    'hero.title': 'Ivory Studio',
-    'hero.subtitle': 'We develop advanced web and mobile applications using the latest technologies',
+    'hero.title': 'Ivory Tech',
+    'hero.subtitle': 'Advanced Web Solutions, Educational Platforms, and Clinic Management Systems',
     'hero.startProject': 'Start Your Project',
     'hero.exploreWork': 'Explore Our Work',
 
     // Services Section
     'services.title': 'Our Specialized Services',
     'services.subtitle': 'We provide comprehensive and innovative technical solutions that meet our clients\' needs and achieve their goals',
-    'services.web.title': 'Web Development',
-    'services.web.description': 'We develop advanced websites using React and Next.js',
+    'services.web.title': 'Web & Educational Platforms',
+    'services.web.description': 'We develop advanced websites and educational platforms (LMS) using React and Next.js',
     'services.mobile.title': 'Mobile Applications',
     'services.mobile.description': 'Modern mobile applications for Android and iOS',
     'services.backend.title': 'Backend Development',
@@ -125,8 +125,8 @@ const translations = {
     'projects.ecommerce.description': 'Complete e-commerce platform with secure payment system',
     'projects.project-management.title': 'Project Management App',
     'projects.project-management.description': 'Mobile app for project and team management',
-    'projects.cms.title': 'Content Management System',
-    'projects.cms.description': 'Advanced content management system with interactive dashboard',
+    'projects.cms.title': 'Clinic & Content Management System',
+    'projects.cms.description': 'Advanced medical clinic management and CMS with an interactive, comprehensive dashboard',
     'projects.3d-experience.title': '3D Experience',
     'projects.3d-experience.description': 'Interactive website with advanced 3D technologies',
     'projects.view': 'View Project',
@@ -171,7 +171,7 @@ const translations = {
     'contact.form.send': 'Send Message',
     'contact.form.success': 'Message sent successfully!',
     'contact.form.success.description': 'We will contact you soon',
-    'footer.copyright': '© 2026 Ivory Studio. All rights reserved.'
+    'footer.copyright': '© 2026 Ivory Tech. All rights reserved.'
   }
 };
 

@@ -13,7 +13,7 @@ const Footer = () => {
                 : 'bg-gray-50 border-gray-200 text-gray-500'
             }`}>
             <div className="max-w-7xl mx-auto px-4 text-center">
-                <p>© {new Date().getFullYear()} Ivory Studio. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Ivory Tech. All rights reserved.</p>
             </div>
         </footer>
     );

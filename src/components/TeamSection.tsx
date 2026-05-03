@@ -117,7 +117,7 @@ const TeamSection = () => {
                     }`}>
                     <img
                       src={member.image}
-                      alt={member.name}
+                      alt={`${member.name} - ${member.role} at Ivory Tech`}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover"

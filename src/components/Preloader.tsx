@@ -85,7 +85,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
                         className={`text-3xl md:text-4xl font-black tracking-tighter ${isDarkMode ? 'text-white' : 'text-slate-900'
                             }`}
                     >
-                        Ivory Studio
+                        Ivory Tech
                     </motion.h1>
                 </div>
 

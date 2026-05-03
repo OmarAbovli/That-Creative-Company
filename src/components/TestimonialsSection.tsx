@@ -17,13 +17,13 @@ const TestimonialsSection = () => {
 
     const testimonials: Testimonial[] = [
         {
-            quote: "Ivory Studio transformed our outdated platform into a modern, scalable solution. The results exceeded our expectations!",
+            quote: "Ivory Tech transformed our outdated platform into a modern, scalable solution. The results exceeded our expectations!",
             name: "Ahmed Hassan",
             role: "CTO",
             company: "TechCorp Egypt"
         },
         {
-            quote: "Working with Ivory Studio was a game-changer. Their attention to detail and innovative approach delivered exceptional results.",
+            quote: "Working with Ivory Tech was a game-changer. Their attention to detail and innovative approach delivered exceptional results.",
             name: "Sarah Johnson",
             role: "Product Manager",
             company: "Global Solutions"

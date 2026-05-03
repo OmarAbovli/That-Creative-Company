@@ -1,6 +1,6 @@
-# Ivory Studio 💎
+# Ivory Tech 💎
 
-Ivory Studio is a premium, high-performance digital agency platform built with modern web technologies. It features a stunning 3D procedural background, multilingual support, and industry-leading performance optimizations.
+Ivory Tech is a premium, high-performance digital agency platform built with modern web technologies. It features a stunning 3D procedural background, multilingual support, and industry-leading performance optimizations.
 
 ## ✨ Features
 
