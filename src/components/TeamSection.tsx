@@ -55,6 +55,24 @@ const TeamSection = () => {
       }
     },
     {
+      name: 'MAZIN KHATTAB',
+      role: 'Media Buying & Marketing Director',
+      expertise: 'Media Buying, Social Media Strategy, Digital Marketing',
+      image: '/team/mazin kattab.jpg',
+      social: {
+        twitter: '#'
+      }
+    },
+    {
+      name: 'ABDELRAHMAN MAHMOUD',
+      role: 'Sales Director',
+      expertise: 'Sales Strategy, Business Development, Team Leadership',
+      image: '/team/abelrahman mahmoud.jpg',
+      social: {
+        twitter: '#'
+      }
+    },
+    {
       name: 'ABDELAZIZ MAHMOUD',
       role: 'Professional Graphic Designer',
       expertise: 'Branding, UI/UX, Visual Identity, Motion Graphics',
