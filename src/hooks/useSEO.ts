@@ -91,6 +91,7 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
           "alternateName": ["آيفوري تك", "Ivoryivorytech"],
           "url": "https://www.ivoryivorytech.online/",
           "logo": "https://www.ivoryivorytech.online/logo/logo.png",
+          "description": "شركة مصرية رائدة في خلق حلول برمجية عالمية لحل مشكلات المجتمع.",
           "founder": {
             "@type": "Person",
             "@id": "https://www.ivoryivorytech.online/#founder",
@@ -116,12 +117,50 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
           ]
         },
         {
-          "@type": "WebSite",
-          "@id": "https://www.ivoryivorytech.online/#website",
-          "url": "https://www.ivoryivorytech.online/",
-          "name": "Ivory Tech",
-          "description": seoDescription,
-          "publisher": { "@id": "https://www.ivoryivorytech.online/#organization" }
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Ivory Tech?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ivory Tech is an Egyptian software company that develops innovative solutions to solve community problems using global technologies like React, Node.js, and AI."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is the founder of Ivory Tech?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ivory Tech was founded by Omar Aboali, also known as omarabovli, a full-stack developer with a vision to merge global expertise with Egyptian craftsmanship."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What services does Ivory Tech provide?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide Web Development, Mobile Apps, Enterprise ERP systems (like Sahl ERP), and specialized medical systems (like Clinic System)."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.ivoryivorytech.online/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": title || "Current Page",
+              "item": window.location.href
+            }
+          ]
         }
       ]
     };

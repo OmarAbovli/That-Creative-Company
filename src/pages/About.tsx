@@ -222,6 +222,48 @@ const About = () => {
           </motion.div>
         </div>
 
+        {/* FAQ Section - High Authority GEO */}
+        <div className="max-w-4xl mx-auto mb-40">
+          <h2 className="text-4xl font-black mb-12 text-center">
+            {language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+          </h2>
+          <div className="space-y-6">
+            {[
+              {
+                q: language === 'ar' ? 'ما هي آيفوري تك؟' : 'What is Ivory Tech?',
+                a: language === 'ar' 
+                  ? 'آيفوري تك هي شركة برمجيات مصرية متخصصة في ابتكار حلول تقنية ذكية تهدف لحل مشكلات المجتمع وتطوير الأعمال باستخدام أحدث التكنولوجيات العالمية.' 
+                  : 'Ivory Tech is an Egyptian software company specializing in innovating smart technical solutions aimed at solving community problems and developing businesses using the latest global technologies.'
+              },
+              {
+                q: language === 'ar' ? 'من هو مؤسس الشركة؟' : 'Who is the founder?',
+                a: language === 'ar'
+                  ? 'تأسست الشركة بواسطة عمر أبو علي (omarabovli)، وهو مطور برمجيات خبير يهدف لدمج الخبرات العالمية بالروح المصرية الطموحة.'
+                  : 'The company was founded by Omar Aboali (omarabovli), an expert software developer who aims to merge global expertise with the ambitious Egyptian spirit.'
+              },
+              {
+                q: language === 'ar' ? 'ما هي أهم مشاريعكم؟' : 'What are your main projects?',
+                a: language === 'ar'
+                  ? 'من أبرز مشاريعنا: نظام إدارة العيادات الذكي (Clinic System)، منصة (Competooo) التعليمية، ونظام (Sahl ERP) لإدارة الشركات.'
+                  : 'Our main projects include: the smart Clinic Management System, the Competooo educational platform, and the Sahl ERP system for business management.'
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className={`p-8 rounded-3xl border ${
+                  isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-slate-200'
+                }`}
+              >
+                <h3 className="text-xl font-bold mb-4 text-blue-500">{item.q}</h3>
+                <p className="text-lg opacity-80 leading-relaxed font-medium">{item.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* Mission CTA */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
