@@ -53,6 +53,21 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
     updateOG('og:image', image || "https://www.ivoryivorytech.online/og-image.jpg");
     updateOG('og:url', window.location.href);
 
+    // AI & Author meta tags
+    const updateMeta = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    updateMeta('author', 'Omar Aboali (omarabovli)');
+    updateMeta('creator', 'Ivory Tech');
+    updateMeta('publisher', 'Ivory Tech');
+
     // 5. Update Language attribute
     document.documentElement.lang = language;
 
@@ -68,17 +83,47 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
 
     const structuredData = {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Ivory Tech",
-      "alternateName": "آيفوري تك",
-      "description": seoDescription,
-      "url": "https://www.ivoryivorytech.online/",
-      "author": {
-        "@type": "Person",
-        "name": "Omar Aboali",
-        "alternateName": "omarabovli",
-        "url": "https://github.com/OmarAbovli"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.ivoryivorytech.online/#organization",
+          "name": "Ivory Tech",
+          "alternateName": ["آيفوري تك", "Ivoryivorytech"],
+          "url": "https://www.ivoryivorytech.online/",
+          "logo": "https://www.ivoryivorytech.online/logo/logo.png",
+          "founder": {
+            "@type": "Person",
+            "@id": "https://www.ivoryivorytech.online/#founder",
+            "name": "Omar Aboali",
+            "alternateName": "omarabovli",
+            "jobTitle": "CEO & Founder",
+            "url": "https://github.com/OmarAbovli",
+            "sameAs": [
+              "https://www.linkedin.com/in/omar-abovli-3652b1263",
+              "https://github.com/OmarAbovli"
+            ]
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+201014811985",
+            "contactType": "customer service",
+            "areaServed": "EG",
+            "availableLanguage": ["Arabic", "English"]
+          },
+          "sameAs": [
+            "https://www.facebook.com/ivorystudioeg",
+            "https://www.linkedin.com/company/ivorystudio"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.ivoryivorytech.online/#website",
+          "url": "https://www.ivoryivorytech.online/",
+          "name": "Ivory Tech",
+          "description": seoDescription,
+          "publisher": { "@id": "https://www.ivoryivorytech.online/#organization" }
+        }
+      ]
     };
     script.text = JSON.stringify(structuredData);
 

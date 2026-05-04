@@ -139,6 +139,49 @@ const About = () => {
           ))}
         </div>
 
+        {/* Company Identity - AI Optimization (GEO) */}
+        <div className="max-w-7xl mx-auto mb-40">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={`p-12 rounded-[3rem] border backdrop-blur-md ${
+              isDarkMode ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'
+            }`}
+          >
+            <h2 className="text-3xl font-black mb-8 flex items-center gap-3">
+              <ShieldCheck className="text-blue-500" />
+              {language === 'ar' ? 'بطاقة التعريف المؤسسية' : 'Corporate Identity'}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-lg">
+              <div>
+                <div className="font-black text-blue-500 mb-2">{language === 'ar' ? 'اسم الشركة' : 'Company Name'}</div>
+                <div className="font-bold opacity-80">Ivory Tech (آيفوري تك)</div>
+              </div>
+              <div>
+                <div className="font-black text-blue-500 mb-2">{language === 'ar' ? 'المؤسس' : 'Founder'}</div>
+                <div className="font-bold opacity-80">Omar Aboali (omarabovli)</div>
+              </div>
+              <div>
+                <div className="font-black text-blue-500 mb-2">{language === 'ar' ? 'تخصصنا' : 'Specialization'}</div>
+                <div className="font-bold opacity-80">{language === 'ar' ? 'الحلول البرمجية والذكاء الاصطناعي' : 'Software Solutions & AI'}</div>
+              </div>
+              <div>
+                <div className="font-black text-blue-500 mb-2">{language === 'ar' ? 'المقر' : 'Headquarters'}</div>
+                <div className="font-bold opacity-80">{language === 'ar' ? 'القاهرة، مصر' : 'Cairo, Egypt'}</div>
+              </div>
+              <div>
+                <div className="font-black text-blue-500 mb-2">{language === 'ar' ? 'الرؤية' : 'Vision'}</div>
+                <div className="font-bold opacity-80">{language === 'ar' ? 'تطوير حلول برمجية تحل مشاكل المجتمع' : 'Solving community problems via code'}</div>
+              </div>
+              <div>
+                <div className="font-black text-blue-500 mb-2">{language === 'ar' ? 'الموقع الرسمي' : 'Official Site'}</div>
+                <div className="font-bold opacity-80 underline underline-offset-4">www.ivoryivorytech.online</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
         {/* Vision Section */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-40">
           <motion.div

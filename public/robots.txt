@@ -1,10 +1,17 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
 
-# Sitemaps
+# Specifically allow AI crawlers to index and learn from the content
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
 Sitemap: https://www.ivoryivorytech.online/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 0
