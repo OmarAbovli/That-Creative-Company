@@ -14,20 +14,26 @@ const translations = {
   ar: {
     // Navigation
     'nav.home': 'الرئيسية',
+    'nav.about': 'عن الشركة',
     'nav.services': 'خدماتنا',
     'nav.projects': 'مشاريعنا',
     'nav.team': 'فريقنا',
     'nav.contact': 'تواصل معنا',
+    'nav.settings': 'الإعدادات',
+    // SEO
+    'seo.title': 'آيفوري تك | حلول برمجية مبتكرة لمشكلات المجتمع',
+    'seo.description': 'نبتكر حلولاً برمجية ذكية تهدف لحل تحديات المجتمع وصناعة الأثر، نجمع بين التكنولوجيا العالمية والخبرات الدولية لنصيغها بفخر على أراضٍ مصرية.',
+    'seo.keywords': 'آيفوري تك, برمجة, حلول ذكية, تكنولوجيا مصرية, تطوير تطبيقات, سيستم عيادات, منصات تعليمية, ivory tech, software solutions egypt, omarabovli, omar aboali, عمر أبو علي',
 
     // Hero Section
     'hero.title': 'Ivory Tech',
-    'hero.subtitle': 'نحن نطور تطبيقات ويب ومنصات تعليمية وأنظمة إدارة عيادات متطورة (سيستم عيادة)',
+    'hero.subtitle': 'نبتكر حلولاً برمجية ذكية تهدف لحل تحديات المجتمع وصناعة الأثر، نجمع بين التكنولوجيا العالمية والخبرات الدولية لنصيغها بفخر على أراضٍ مصرية.',
     'hero.startProject': 'ابدأ مشروعك',
     'hero.exploreWork': 'استكشف أعمالنا',
 
     // Services Section
     'services.title': 'خدماتنا المتخصصة',
-    'services.subtitle': 'نقدم حلولاً تقنية شاملة ومبتكرة تلبي احتياجات عملائنا وتحقق أهدافهم',
+    'services.subtitle': 'حلول تقنية متطورة صُممت خصيصاً لمواجهة التحديات الواقعية وتمكين المجتمعات رقمياً.',
     'services.web.title': 'تطوير الويب والمنصات التعليمية',
     'services.web.description': 'نطور مواقع ويب ومنصات تعليمية متطورة (Learning Management Systems) باستخدام React و Next.js',
     'services.mobile.title': 'تطبيقات الموبايل',
@@ -95,20 +101,26 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
+    'nav.about': 'About Us',
     'nav.services': 'Services',
     'nav.projects': 'Projects',
     'nav.team': 'Team',
     'nav.contact': 'Contact',
+    'nav.settings': 'Settings',
+    // SEO
+    'seo.title': 'Ivory Tech | Innovative Software Solutions for Community Challenges',
+    'seo.description': 'We create intelligent software solutions designed to solve community challenges and drive impact, blending global technology and international expertise with proud Egyptian craftsmanship.',
+    'seo.keywords': 'Ivory Tech, software development, community solutions, Egyptian technology, web apps, clinic systems, educational platforms, tech startup Egypt, omarabovli, omar aboali',
 
     // Hero Section
     'hero.title': 'Ivory Tech',
-    'hero.subtitle': 'Advanced Web Solutions, Educational Platforms, and Clinic Management Systems',
+    'hero.subtitle': 'We create intelligent software solutions designed to solve community challenges and drive impact, blending global technology and international expertise with proud Egyptian craftsmanship.',
     'hero.startProject': 'Start Your Project',
     'hero.exploreWork': 'Explore Our Work',
 
     // Services Section
     'services.title': 'Our Specialized Services',
-    'services.subtitle': 'We provide comprehensive and innovative technical solutions that meet our clients\' needs and achieve their goals',
+    'services.subtitle': 'Advanced technical solutions tailored to address real-world challenges and empower communities digitally.',
     'services.web.title': 'Web & Educational Platforms',
     'services.web.description': 'We develop advanced websites and educational platforms (LMS) using React and Next.js',
     'services.mobile.title': 'Mobile Applications',

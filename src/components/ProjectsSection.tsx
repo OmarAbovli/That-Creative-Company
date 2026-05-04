@@ -6,7 +6,9 @@ import { ExternalLink, Github, ZoomIn } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import * as THREE from 'three';
-import ProjectModal, { ProjectData } from './ProjectModal';
+import ProjectModal from './ProjectModal';
+import { projects, ProjectData } from '@/data/projects';
+import { useNavigate } from 'react-router-dom';
 
 const AnimatedTorus = () => {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -32,97 +34,7 @@ const ProjectsSection = () => {
   const { isDarkMode } = useTheme();
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
 
-  const projects: ProjectData[] = [
-    {
-      title: "Clinic System",
-      category: "Medical Management",
-      shortDescription: "Advanced clinic management system with patient records, appointments, and medical reporting.",
-      fullDescription: "A comprehensive digital solution for medical clinics. Features include patient profile management, appointment scheduling, electronic medical records (EMR), and financial tracking.",
-      problem: "Medical clinics faced challenges in managing patient flow, securing medical history, and tracking clinic finances across multiple departments.",
-      solution: "We built a centralized, secure platform that streamlines the patient experience from booking to billing, ensuring medical data is always accessible and clinic operations are efficient.",
-      image: "/projects/clinic-system/الرئيسيه.png",
-      gallery: [
-        "/projects/clinic-system/الرئيسيه.png",
-        "/projects/clinic-system/المرضي.png",
-        "/projects/clinic-system/المواعيد.png",
-        "/projects/clinic-system/اداره الماليه.png",
-        "/projects/clinic-system/اعدادات الai.png",
-        "/projects/clinic-system/واتساب.png"
-      ],
-      technologies: ['React', 'AI Integration', 'WhatsApp Automation', 'Medical ERP', 'Financial Analytics'],
-      demoUrl: 'https://clinic-system-v2.vercel.app/',
-      githubUrl: 'https://github.com/OmarAbovli/clinic-system-v2'
-    },
-    {
-      title: "Competooo",
-      category: "EdTech Platform",
-      shortDescription: "Interactive English learning platform for high school students with live sessions and gamification.",
-      fullDescription: "Competooo is a comprehensive educational platform designed for 1st, 2nd, and 3rd secondary high school students. It transforms English learning into an engaging experience through gamified lessons, daily streaks, exams, and live interactive sessions with teachers.",
-      problem: "Traditional learning methods often fail to engage high school students, leading to low retention and motivation. Students needed a platform that speaks their language—fun, competitive, and accessible anywhere.",
-      solution: "We built a React-based platform featuring a vibrant dark mode UI, real-time quizzes, and a comprehensive dashboard for tracking progress. The system supports video lessons, PDF materials, and live streaming integration.",
-      image: "/projects/competooo-landing.png",
-      gallery: [
-        "/projects/competooo-dashboard.png",
-        "/projects/competooo-landing.png"
-      ],
-      technologies: ['React', 'Vercel', 'Tailwind CSS', 'Interactive UI'],
-      demoUrl: 'https://competooo.vercel.app/',
-      githubUrl: 'https://github.com/OmarAbovli/EL-helal',
-      demoCredentials: {
-        username: 'omarabovli',
-        password: '123123'
-      }
-    },
-    {
-      title: "Sahl ERP",
-      category: "Enterprise System",
-      shortDescription: "Comprehensive ERP system for company management, accounting, and CRM.",
-      fullDescription: "Sahl ERP is a powerful business management suite that streamlines operations for companies. It integrates accounting, HR, CRM, and inventory management into a single, unified dashboard with real-time analytics.",
-      problem: "Managing disconnected systems for accounting, customer relations, and HR leads to data silos and inefficiency. Companies needed a unified 'Source of Truth'.",
-      solution: "We developed a modular ERP system with a dashboard-first approach. Key features include automated financial reporting, employee management, and a robust CRM for tracking sales pipelines.",
-      image: "/projects/sahl-dashboard.png",
-      gallery: [
-        "/projects/sahl-dashboard.png"
-      ],
-      technologies: ['React', 'ERP Architecture', 'CRM', 'Data Visualization'],
-      demoUrl: 'https://sahl-demo.vercel.app/',
-      githubUrl: 'https://github.com/OmarAbovli/Sahl-v3',
-      demoCredentials: {
-        username: 'abdelazizmahmoudadmin280',
-        password: '321321'
-      }
-    },
-    {
-      title: "Bee Group",
-      category: "Corporate Website",
-      shortDescription: "Modern corporate presence for a leading pharmaceutical company.",
-      fullDescription: "A professional corporate website for Bee Group, a pharmaceutical company active in the Egyptian market since 2018. The site showcases their medical products, vision, and market presence with a clean, trustworthy aesthetic.",
-      problem: "The company needed a digital presence that reflected their innovative approach to medicine and established trust with partners and patients.",
-      solution: "We designed a clean, medical-themed website with golden touches to reflect quality. It features detailed product catalogs, company history, and easy contact channels.",
-      image: "/projects/bee-group-landing.png",
-      gallery: [
-        "/projects/bee-group-landing.png"
-      ],
-      technologies: ['React', 'Corporate Design', 'Responsive Web'],
-      demoUrl: 'https://bee-group.vercel.app/',
-      githubUrl: 'https://github.com/OmarAbovli/BEE-GROUP'
-    },
-    {
-      title: "Center Man Sys",
-      category: "Management System",
-      shortDescription: "Attendance and grading system for educational centers with WhatsApp reporting.",
-      fullDescription: "A specialized management system for educational centers to track student attendance, grades, and performance. It automates administrative tasks and keeps parents informed through automated reporting.",
-      problem: "Manual attendance taking and reporting is time-consuming and error-prone for busy educational centers.",
-      solution: "We built an automated system that tracks attendance via unique IDs, records quiz grades, and automatically sends performance reports to parents via WhatsApp, ensuring seamless communication.",
-      image: "/projects/center-man-sys.png",
-      gallery: [
-        "/projects/center-man-sys.png"
-      ],
-      technologies: ['Attendance Tracking', 'WhatsApp Integration', 'Grading System'],
-      demoUrl: '#',
-      githubUrl: 'https://github.com/OmarAbovli/center-man-sys'
-    }
-  ];
+  const navigate = useNavigate();
 
   return (
     <section
@@ -175,8 +87,8 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              layoutId={`project-card-${index}`}
-              onClick={() => setSelectedProject(project)}
+              layoutId={`project-card-${project.id}`}
+              onClick={() => navigate(`/projects/${project.id}`)}
               initial={{
                 opacity: 0,
                 y: 60,
@@ -268,7 +180,8 @@ const ProjectsSection = () => {
       </div>
 
       {/* MODAL */}
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      {/* MODAL (Optional fallback or quick view - disabled for now to favor page) */}
+      {/* <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} /> */}
     </section>
   );
 };

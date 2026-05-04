@@ -13,35 +13,35 @@ import PlanetBackground from '@/components/3d/PlanetBackground';
 import { Canvas } from '@react-three/fiber';
 
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import Preloader from '@/components/Preloader';
 import Footer from '@/components/Footer';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
+import useSEO from '@/hooks/useSEO';
 
-const LazySection = ({ children }: { children: React.ReactNode }) => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsIntersecting(true);
-        observer.disconnect();
-      }
-    }, { rootMargin: '200px' });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return <div ref={ref}>{isIntersecting ? children : <div className="h-96" />}</div>;
-}
 
 const Index = () => {
   const { isDarkMode } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!isLoading && location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [isLoading, location.hash]);
 
   // Parallax effect for 3D background
   const { scrollY } = useScroll();
   const backgroundY = useTransform(scrollY, [0, 2000], [0, -400]);
+
+  useSEO({});
 
   return (
     <div className={`min-h-screen relative overflow-x-hidden transition-all duration-1000 bg-transparent ${isDarkMode
@@ -77,12 +77,12 @@ const Index = () => {
         <div className="pointer-events-auto">
           <HeroSection />
 
-          <LazySection><ServicesSection /></LazySection>
-          <LazySection><ProjectsSection /></LazySection>
-          <LazySection><TestimonialsSection /></LazySection>
-          <LazySection><StatsSection /></LazySection>
-          <LazySection><TeamSection /></LazySection>
-          <LazySection><ContactSection /></LazySection>
+          <ServicesSection />
+          <ProjectsSection />
+          <TestimonialsSection />
+          <StatsSection />
+          <TeamSection />
+          <ContactSection />
         </div>
       </main>
 

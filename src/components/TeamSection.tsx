@@ -123,6 +123,7 @@ const TeamSection = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
+              id={member.name === 'OMAR ABOALI' ? 'omarabovli' : undefined}
             >
               <div className={`backdrop-blur-md border rounded-2xl p-6 text-center transition-all duration-300 ${isDarkMode
                 ? 'bg-[#000B2B]/40 border-[#0082FF]/30 hover:border-[#01ECFF]/60 hover:shadow-[0_0_30px_rgba(0,130,255,0.2)]'
