@@ -164,6 +164,38 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
         }
       ]
     };
+    // 7. Update Canonical Tag
+    const cleanPathname = window.location.pathname.endsWith('/') 
+      ? window.location.pathname.slice(0, -1) 
+      : window.location.pathname;
+    
+    const baseCanonical = "https://www.ivoryivorytech.online";
+    const canonicalUrl = baseCanonical + (cleanPathname || "/");
+    
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', canonicalUrl);
+
+    // 8. Update hreflang tags
+    const updateHreflang = (lang: string, href: string) => {
+      let link = document.querySelector(`link[hreflang="${lang}"]`);
+      if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', lang);
+        document.head.appendChild(link);
+      }
+      link.setAttribute('href', href);
+    };
+
+    updateHreflang('ar', canonicalUrl);
+    updateHreflang('en', canonicalUrl);
+    updateHreflang('x-default', canonicalUrl);
+
     script.text = JSON.stringify(structuredData);
 
   }, [title, description, keywords, image, t, language]);

@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/projects/competeoo",
+      "destination": "/projects/competooo",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
