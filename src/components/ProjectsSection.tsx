@@ -180,6 +180,7 @@ const ProjectsSection = () => {
               </motion.div>
             </Link>
           ))}
+        </div>
       </div>
 
       {/* MODAL */}
