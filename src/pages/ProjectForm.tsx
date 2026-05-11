@@ -33,7 +33,7 @@ const ProjectForm = () => {
 
     // Create form for FormSubmit
     const form = document.createElement('form');
-    form.action = 'https://formsubmit.co/omarabovli@gmail.com';
+    form.action = 'https://formsubmit.co/contact@ivoryivorytech.online';
     form.method = 'POST';
     form.style.display = 'none';
 

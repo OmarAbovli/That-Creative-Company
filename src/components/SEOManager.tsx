@@ -22,8 +22,6 @@ const SEOManager = ({
   const seoKeywords = keywords || t('seo.keywords');
   const seoImage = image || "https://www.ivoryivorytech.online/og-image.jpg";
 
-  return null;
-  /*
   return (
     <Helmet>
       <html lang={language} />
@@ -56,37 +54,29 @@ const SEOManager = ({
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
+          "@type": "Organization",
           "name": "Ivory Tech",
           "alternateName": "آيفوري تك",
           "description": seoDescription,
           "image": "https://www.ivoryivorytech.online/favicon.svg",
+          "logo": "https://www.ivoryivorytech.online/favicon.svg",
           "url": canonicalUrl,
-          "telephone": "+201014811985",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "author": {
-            "@type": "Person",
-            "name": "Omar Aboali",
-            "alternateName": "omarabovli",
-            "url": "https://github.com/OmarAbovli"
-          },
+          "telephone": t('contact.phone.value'),
+          "email": t('contact.email.value'),
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Cairo",
             "addressCountry": "EG"
           },
           "sameAs": [
-            "https://www.facebook.com/omarabovli",
-            "https://www.linkedin.com/in/omarabovli",
-            "https://github.com/OmarAbovli"
-            
+            "https://www.facebook.com/profile.php?id=61589480705918",
+            "https://www.instagram.com/ivorytech.eg/",
+            "https://www.tiktok.com/@ivory.tech.eg?lang=en-GB"
           ]
         })}
       </script>
     </Helmet>
   );
-  */
 };
 
 export default SEOManager;

@@ -91,7 +91,7 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
           "alternateName": ["آيفوري تك", "Ivoryivorytech"],
           "url": "https://www.ivoryivorytech.online/",
           "logo": "https://www.ivoryivorytech.online/logo/logo.png",
-          "description": "شركة مصرية رائدة في خلق حلول برمجية عالمية لحل مشكلات المجتمع.",
+          "description": "شركة آيفوري تك هي شريكتك في الابتكار الرقمي، نصمم حلولاً برمجية ذكية تحل تحديات المجتمع وتصنع أثراً حقيقياً.",
           "founder": {
             "@type": "Person",
             "@id": "https://www.ivoryivorytech.online/#founder",
@@ -112,8 +112,9 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
             "availableLanguage": ["Arabic", "English"]
           },
           "sameAs": [
-            "https://www.facebook.com/ivorystudioeg",
-            "https://www.linkedin.com/company/ivorystudio"
+            "https://www.facebook.com/profile.php?id=61589480705918",
+            "https://www.instagram.com/ivorytech.eg/",
+            "https://www.tiktok.com/@ivory.tech.eg?lang=en-GB"
           ]
         },
         {

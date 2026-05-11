@@ -21,9 +21,9 @@ const translations = {
     'nav.contact': 'تواصل معنا',
     'nav.settings': 'الإعدادات',
     // SEO
-    'seo.title': 'آيفوري تك | حلول برمجية مبتكرة لمشكلات المجتمع',
-    'seo.description': 'نبتكر حلولاً برمجية ذكية تهدف لحل تحديات المجتمع وصناعة الأثر، نجمع بين التكنولوجيا العالمية والخبرات الدولية لنصيغها بفخر على أراضٍ مصرية.',
-    'seo.keywords': 'آيفوري تك, برمجة, حلول ذكية, تكنولوجيا مصرية, تطوير تطبيقات, سيستم عيادات, منصات تعليمية, ivory tech, software solutions egypt, omarabovli, omar aboali, عمر أبو علي',
+    'seo.title': 'آيفوري تك | حلول برمجية مبتكرة لمستقبل المجتمع الرقمي',
+    'seo.description': 'آيفوري تك هي شريكتك في الابتكار الرقمي. نصمم حلولاً برمجية ذكية تحل تحديات المجتمع وتصنع أثراً حقيقياً، معتمدين على أحدث التقنيات العالمية والخبرات الدولية.',
+    'seo.keywords': 'آيفوري تك, برمجة, حلول ذكية, تكنولوجيا مصرية, تطوير تطبيقات, سيستم عيادات, منصات تعليمية, شركة برمجة في مصر, ivory tech, software solutions egypt, app development, fintech egypt',
 
     // Hero Section
     'hero.title': 'Ivory Tech',
@@ -78,9 +78,11 @@ const translations = {
     'contact.subtitle': 'لديك مشروع مميز؟ دعنا نساعدك في تحويل فكرتك إلى واقع رقمي مذهل',
     'contact.info.title': 'معلومات التواصل',
     'contact.email.title': 'البريد الإلكتروني',
+    'contact.email.value': 'contact@ivoryivorytech.online',
     'contact.phone.title': 'الهاتف',
+    'contact.phone.value': '+201014811985',
     'contact.address.title': 'العنوان',
-    'contact.address.value': 'الرياض، المملكة العربية السعودية',
+    'contact.address.value': 'مصر',
     'contact.why-choose.title': 'لماذا تختارنا؟',
     'contact.why-choose.experience': 'خبرة أكثر من 5 سنوات في تطوير التطبيقات',
     'contact.why-choose.team': 'فريق متخصص في أحدث التقنيات',
@@ -108,9 +110,9 @@ const translations = {
     'nav.contact': 'Contact',
     'nav.settings': 'Settings',
     // SEO
-    'seo.title': 'Ivory Tech | Innovative Software Solutions for Community Challenges',
-    'seo.description': 'We create intelligent software solutions designed to solve community challenges and drive impact, blending global technology and international expertise with proud Egyptian craftsmanship.',
-    'seo.keywords': 'Ivory Tech, software development, community solutions, Egyptian technology, web apps, clinic systems, educational platforms, tech startup Egypt, omarabovli, omar aboali',
+    'seo.title': 'Ivory Tech | Innovative Software Solutions for a Digital Future',
+    'seo.description': 'Ivory Tech is your partner in digital innovation. We create intelligent software solutions designed to solve community challenges and drive real impact, powered by global technology and international expertise.',
+    'seo.keywords': 'Ivory Tech, software development, community solutions, Egyptian technology, web apps, clinic systems, educational platforms, tech startup Egypt, software company Egypt',
 
     // Hero Section
     'hero.title': 'Ivory Tech',
@@ -165,9 +167,11 @@ const translations = {
     'contact.subtitle': 'Have an amazing project? Let us help you turn your idea into a stunning digital reality',
     'contact.info.title': 'Contact Information',
     'contact.email.title': 'Email',
+    'contact.email.value': 'contact@ivoryivorytech.online',
     'contact.phone.title': 'Phone',
+    'contact.phone.value': '+201014811985',
     'contact.address.title': 'Address',
-    'contact.address.value': 'Riyadh, Saudi Arabia',
+    'contact.address.value': 'Egypt',
     'contact.why-choose.title': 'Why Choose Us?',
     'contact.why-choose.experience': 'More than 5 years of experience in app development',
     'contact.why-choose.team': 'Team specialized in the latest technologies',

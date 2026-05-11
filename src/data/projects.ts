@@ -112,31 +112,6 @@ export const projects: ProjectData[] = [
     }
   },
   {
-    id: "bee-group",
-    title: "Bee Group",
-    category: "Corporate Website",
-    shortDescription: "Modern corporate presence for a leading pharmaceutical company.",
-    fullDescription: "A professional corporate website for Bee Group, a pharmaceutical company active in the Egyptian market since 2018. The site showcases their medical products, vision, and market presence with a clean, trustworthy aesthetic.",
-    problem: "The company needed a digital presence that reflected their innovative approach to medicine and established trust with partners and patients.",
-    solution: "We designed a clean, medical-themed website with golden touches to reflect quality. It features detailed product catalogs, company history, and easy contact channels.",
-    technicalDetails: "Optimized for SEO and performance. Uses a custom content structure to handle extensive product listings without compromising load times. Built with accessibility in mind and high-end animations using Framer Motion.",
-    features: [
-      "Dynamic Pharmaceutical Product Catalog",
-      "Corporate Vision & History Timeline",
-      "Partner & Distributor Portal Integration",
-      "Responsive Medical-themed Design",
-      "Direct Inquiry & Contact Management"
-    ],
-    dataStructure: "Hierarchical product categorization with metadata for medical specifications. Optimized image delivery for pharmaceutical catalogs.",
-    image: "/projects/bee-group-landing.png",
-    gallery: [
-      "/projects/bee-group-landing.png"
-    ],
-    technologies: ['React', 'Corporate Design', 'Responsive Web'],
-    demoUrl: 'https://bee-group.vercel.app/',
-    githubUrl: 'https://github.com/OmarAbovli/BEE-GROUP'
-  },
-  {
     id: "center-man-sys",
     title: "Center Man Sys",
     category: "Management System",

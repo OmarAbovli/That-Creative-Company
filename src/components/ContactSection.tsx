@@ -2,7 +2,7 @@
 import React, { Suspense, useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Facebook, Instagram, Music } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -81,20 +81,20 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
-      info: 'omarabovli@gmail.com',
-      href: 'mailto:omarabovli@gmail.com'
+      title: t('contact.email.title'),
+      info: t('contact.email.value'),
+      href: `mailto:${t('contact.email.value')}`
     },
     {
       icon: Phone,
-      title: 'Phone',
-      info: '+201069466522',
-      href: 'tel:+201069466522'
+      title: t('contact.phone.title'),
+      info: t('contact.phone.value'),
+      href: `tel:${t('contact.phone.value')}`
     },
     {
       icon: MapPin,
-      title: 'Address',
-      info: 'Tanta, Gharbia, Egypt',
+      title: t('contact.address.title'),
+      info: t('contact.address.value'),
       href: '#'
     }
   ];
@@ -176,6 +176,34 @@ const ContactSection = () => {
               </div>
             </div>
 
+            <div className="space-y-4">
+              <h3 className={`text-xl font-bold transition-colors duration-1000 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}>Follow Our Journey</h3>
+              <div className="flex gap-4">
+                {[
+                  { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61589480705918', label: 'Facebook' },
+                  { icon: Instagram, href: 'https://www.instagram.com/ivorytech.eg/', label: 'Instagram' },
+                  { icon: Music, href: 'https://www.tiktok.com/@ivory.tech.eg?lang=en-GB', label: 'TikTok' }
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${isDarkMode
+                      ? 'bg-[#0082FF]/10 hover:bg-[#0082FF]/20 text-[#01ECFF]'
+                      : 'bg-blue-50 hover:bg-blue-100 text-blue-600'
+                      }`}
+                    aria-label={social.label}
+                  >
+                    <social.icon size={24} />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
             <div className={`backdrop-blur-md border rounded-2xl p-6 transition-all duration-1000 ${isDarkMode
               ? 'bg-[#000B2B]/40 border-[#0082FF]/30'
               : 'bg-white/80 border-gray-200'
@@ -197,7 +225,7 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
           >
             <form
-              action="https://formsubmit.co/omarabovli@gmail.com"
+              action="https://formsubmit.co/contact@ivoryivorytech.online"
               method="POST"
               className={`backdrop-blur-md border rounded-2xl p-8 transition-all duration-1000 ${isDarkMode
                 ? 'bg-[#000B2B]/40 border-[#0082FF]/30'
@@ -205,7 +233,7 @@ const ContactSection = () => {
                 }`}
             >
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://that-creative-company.vercel.app/" />
+              <input type="hidden" name="_next" value="https://www.ivoryivorytech.online/" />
 
               <h3 className={`text-2xl font-bold mb-6 transition-colors duration-1000 ${isDarkMode ? 'text-white' : 'text-gray-900'
                 }`}>{t('contact.form.title')}</h3>
