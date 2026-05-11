@@ -61,7 +61,7 @@ const SEOManager = ({
           "image": "https://www.ivoryivorytech.online/favicon.svg",
           "logo": "https://www.ivoryivorytech.online/favicon.svg",
           "url": canonicalUrl,
-          "telephone": t('contact.phone.value'),
+          "telephone": "+201069466522",
           "email": t('contact.email.value'),
           "address": {
             "@type": "PostalAddress",

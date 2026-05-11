@@ -106,7 +106,7 @@ const useSEO = ({ title, description, keywords, image }: SEOProps) => {
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+201014811985",
+            "telephone": "+201069466522",
             "contactType": "customer service",
             "areaServed": "EG",
             "availableLanguage": ["Arabic", "English"]
